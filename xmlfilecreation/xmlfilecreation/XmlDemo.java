@@ -13,7 +13,7 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 public class XmlDemo {
-	public static String xmlFileLocation = "C:\\Users\\prave\\eclipse-workspace\\xmlfilecreation\\xmlfile1.xml";
+	public static String xmlFileLocation = "C:\\Users\\prave\\git\\xmlfilecreation\\xmlfilecreation\\xmlfile1.xml";
 	
 	public static void main(String args[]) throws ParserConfigurationException, TransformerException
 	{
@@ -23,6 +23,7 @@ public class XmlDemo {
 		
 		Element root = document.createElement("car");
 		document.appendChild(root);
+		
 		
 		//car1		
 		Element car_name = document.createElement("Bucati");
