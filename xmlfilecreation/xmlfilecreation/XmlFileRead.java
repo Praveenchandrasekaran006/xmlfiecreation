@@ -38,6 +38,10 @@ class CarDetails
 	{
 		return this.colour;
 	}
+	public String toString()
+	{
+		return "The value of car is : "+"\nThe colour is : "+colour+" \nThe Speed is : "+speed+"\n";
+	}
 }
 
 public class XmlFileRead extends CarDetails {
@@ -51,8 +55,6 @@ public class XmlFileRead extends CarDetails {
 		Document document = db.parse(fr);
 		
 		document.getDocumentElement().normalize();
-		//System.out.println("The Root element is: " + document.getDocumentElement().getNodeName()); 
-		
 		
 		NodeList nodeList = document.getElementsByTagName("Bucati");  
 		
@@ -68,12 +70,9 @@ public class XmlFileRead extends CarDetails {
 			l.add(cd);		
 		}
 		
-		for(int i=0; i<l.size(); i++)
-		{
-			System.out.println("The value of car "+(i+1)+" is: ");
-			System.out.println("Speed: "+l.get(i).getValueSpeed());
-			System.out.println("Colour: "+l.get(i).getValueColour());
-		}
+		for(CarDetails x : l)
+			System.out.println(x);
+		
 		
 	}
 }

@@ -1,12 +1,17 @@
 package xmlfilecreation;
 import java.io.File;
+import java.io.StringWriter;
+import java.io.Writer;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Attr;
@@ -15,7 +20,7 @@ import org.w3c.dom.Element;
 public class XmlDemo {
 	public static String xmlFileLocation = "C:\\Users\\prave\\git\\xmlfilecreation\\xmlfilecreation\\xmlfile1.xml";
 	
-	public static void main(String args[]) throws ParserConfigurationException, TransformerException
+	public static void main(String args[]) throws Exception
 	{
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		DocumentBuilder db = dbf.newDocumentBuilder();
@@ -78,7 +83,11 @@ public class XmlDemo {
 		    
 	    TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
-        DOMSource domSource = new DOMSource(document);
+       
+        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        
+		DOMSource domSource = new DOMSource(document);
         
         StreamResult streamResult = new StreamResult(new File(xmlFileLocation));
         
