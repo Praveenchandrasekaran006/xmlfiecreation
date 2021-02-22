@@ -46,7 +46,7 @@ class CarDetails
 
 public class XmlFileRead extends CarDetails {
 
-	public static void main(String args[]) throws Exception
+	public static void main(String args[]) throws ParserConfigurationException, SAXException, IOException
 	{
 		File fr = new File("C:\\Users\\prave\\git\\xmlfilecreation\\xmlfilecreation\\xmlfile1.xml");
 		
